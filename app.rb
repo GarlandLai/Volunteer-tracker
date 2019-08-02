@@ -28,6 +28,15 @@ post('/projects') do
   redirect to('/projects')
 end
 
+# search
+
+post('/projects/search') do
+  title = params[:search]
+  project.search(title)
+  erb (:search)
+end
+
+
 get ('/projects/:id') do
   @project = Project.find(params[:id].to_i())
   erb(:project)
@@ -74,10 +83,4 @@ delete ('/projects/:id/volunteers/:volunteer_id') do
   volunteer.delete
   @project = Project.find(params[:id].to_i())
   erb(:project)
-end
-
-post ('/project/search') do
-  title = params[:search]
-  @project = Project.search(title)
-  erb(:search_results)
 end
