@@ -48,10 +48,10 @@ end
   end
 
   def update(name, project_id)
-     @name = name
-     @project_id = project_id
-     DB.exec("UPDATE volunteers SET name = '#{@name}', project_id = #{@project_id} WHERE id = #{@id};")
-   end
+    @name = name
+    @project_id = project_id
+    DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
 
   def delete
     DB.exec("DELETE FROM volunteers WHERE id = #{id};")
