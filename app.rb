@@ -75,3 +75,9 @@ delete ('/projects/:id/volunteers/:volunteer_id') do
   @project = Project.find(params[:id].to_i())
   erb(:project)
 end
+
+post ('/project/search') do
+  title = params[:search]
+  @project = Project.search(title)
+  erb(:search_results)
+end

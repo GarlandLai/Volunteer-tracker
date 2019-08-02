@@ -1,0 +1,10 @@
+<h1>Search Results</h1>
+<% if @projects.any? %>
+<ul>
+  <% @projects.each do |project| %>
+  <li><a href="/projects/<%= project.id %>"><%=project.title %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are currently no records to display.</p>
+<% end %>

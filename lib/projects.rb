@@ -29,6 +29,16 @@ class Project
     self.title() == project_to_compare.title()
   end
 
+  def self.search(name)
+    returned_projects = DB.exec("SELECT * FROM projects;")
+    projects =[]
+    returned_projects.values.select do |project|
+      title = project.title.fetch("title")
+      projects.push(({:title => title}))
+    end
+    projects
+  end
+
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id=#{id};").first
     title = project.fetch("title")
