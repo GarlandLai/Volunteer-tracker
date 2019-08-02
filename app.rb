@@ -28,14 +28,12 @@ post('/projects') do
   redirect to('/projects')
 end
 
-# search
-
+#SEARCH NO WORKING
 post('/projects/search') do
   title = params[:search]
   project.search(title)
   erb (:search)
 end
-
 
 get ('/projects/:id') do
   @project = Project.find(params[:id].to_i())

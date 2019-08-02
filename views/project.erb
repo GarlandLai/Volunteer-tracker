@@ -17,7 +17,7 @@
 <form action="/projects/<%= @project.id %>/volunteers" method="post">
   <div class="form-group">
     <label for="volunteer_name">Volunteer name</label>
-    <input id="volunteer_name" name="volunteer_name" class="form-control" type="text">
+    <input id="volunteer_name" name="volunteer_name" class="form-control" type="text" required>
   </div>
   <button type="submit" class="btn">Add volunteer</button>
 </form>

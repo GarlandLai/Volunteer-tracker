@@ -30,6 +30,7 @@ class Project
     self.id() == project_to_compare.id()
   end
 
+#SEARCH NO WORKING
   def self.search(title)
     returned_projects = DB.exec("SELECT * FROM projects;")
     projects =[]
@@ -61,5 +62,4 @@ class Project
   def volunteers
     Volunteer.find_by_project(self.id)
   end
-
 end
