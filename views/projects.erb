@@ -1,0 +1,28 @@
+<h1>Projects</h1>
+
+<h3>Search Projects</h3>
+<form action="/projects" method="post">
+  <div class="form-group">
+    <input type="text" name="Search" value="">
+  </div>
+  <button type="submit" class="btn btn-danger" name="button">Submit</button>
+</form>
+<br>
+
+
+<form action="/projects/new" method="get">
+  <button type="click" name="button">Add a new Project</button>
+</form>
+
+
+<h3>Current Available Projects</h3>
+
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><a href="/projects/<%= project.id %>"><%= project.title %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no projects to display.</p>
+<% end %>
