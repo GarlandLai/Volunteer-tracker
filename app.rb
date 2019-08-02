@@ -59,7 +59,7 @@ end
 
 get('/projects/:id/volunteers/:volunteer_id') do
   @volunteer = Volunteer.find(params[:volunteer_id].to_i())
-  erb :project
+  erb (:volunteer)
 end
 
 patch ('/projects/:id/volunteers/:volunteer_id') do

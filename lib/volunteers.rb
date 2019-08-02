@@ -16,7 +16,7 @@ class Volunteer
     else
       false
     end
-  end 
+  end
 
   def self.all
     returned_volunteers = DB.exec("SELECT * FROM volunteers;")
@@ -46,6 +46,12 @@ end
       nil
     end
   end
+
+  def update(name, project_id)
+     @name = name
+     @project_id = project_id
+     DB.exec("UPDATE volunteers SET name = '#{@name}', project_id = #{@project_id} WHERE id = #{@id};")
+   end
 
   def delete
     DB.exec("DELETE FROM volunteers WHERE id = #{id};")
