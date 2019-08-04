@@ -79,3 +79,35 @@ describe 'the volunteer detail page path', {:type => :feature} do
     expect(page).to have_content('')
   end
 end
+
+
+# Adding another spec to test udpating and deleting volunteers.
+
+describe 'Updates volunteer name', {:type => :feature} do
+  it 'shows a updated volunteer name' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/projects/#{project_id}"
+    click_link('Jasmine')
+    fill_in('name', :with => 'Jasmine Johnson')
+    click_button('Update volunteer')
+    expect(page).to have_content('Jasmine Johnson')
+  end
+end
+
+describe 'deletes volunteer', {:type => :feature} do
+  it 'delets volunteer' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    project_id = test_project.id.to_i
+    test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
+    test_volunteer.save
+    visit "/projects/#{project_id}"
+    click_link('Jasmine')
+    click_button('Delete volunteer')
+    expect(page).to have_content('')
+  end
+end
