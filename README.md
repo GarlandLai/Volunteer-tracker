@@ -13,9 +13,10 @@ _Volunteer project tracker websites. Employees are able to view, add, update, or
 1. [Click here](https://github.com/GarlandLai/Volunteer-tracker.git) to get started!
 2. _Clone repository._
 3. _Enter project root directory and type "bundle install" to install all necessary gems._
-4. _Type "ruby app.rb" to run website on localhost._
-5. _Open your desired browser and type in "http://localhost:4567/"_
-6. _You can now create, read, update, or delete projects and volunteers!_
+4. _In the project terminal, type "createdb volunteer_tracker", then "psql volunteer_tracker < database_backup_sql"._
+5. _Type "ruby app.rb" to run website on localhost._
+6. _Open your desired browser and type in "http://localhost:4567/"_
+7. _You can now create, read, update, or delete projects and volunteers!_
 
 ## Known Bugs
 
